@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter: RecyclerView.Adapter<ViewHolderItem>() {
-
-    private val animals = listOf("らいおん", "きりん", "いぬ", "ねこ")
+class RecyclerAdapter(val list: List<String>): RecyclerView.Adapter<ViewHolderItem>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderItem {
         val item = LayoutInflater.from(parent.context)
@@ -15,11 +13,11 @@ class RecyclerAdapter: RecyclerView.Adapter<ViewHolderItem>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolderItem, position: Int) {
-        holder.textViewItem.text = animals[position]
+        holder.textViewItem.text = list[position]
     }
 
     override fun getItemCount(): Int {
-        return animals.size
+        return list.size
     }
 
 }
